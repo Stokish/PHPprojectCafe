@@ -1,0 +1,172 @@
+body {
+    background-color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h4 {
+    font-weight: 400;
+}
+
+hr {
+    margin: 0 0 0 5%;
+    width: 90%;
+    border-width: 2px;
+    background-color: rgb(157, 155, 155);
+}
+
+img {
+    width: 80%;
+    height: 20vh;
+    border-radius: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-size: x-large;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+
+.menu {
+    margin: 5% 15% 10% 15%;
+}
+
+/* text */
+.menu-font {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    margin-left: 10%;
+}
+
+.food {
+    margin: 10% 0;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.col-name {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.imgandname {
+    text-align: center;
+}
+
+/* inputs, summary and details */
+ summary{
+     border-radius: 0.5vh;
+     border: none;
+     height: min-content;
+ }
+summary > hr{
+    display: none;
+    transform: initial;
+}
+
+details[open]  hr{
+    display: inline-block;
+    border-color: black;
+}
+details {
+    font-size: larger;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    align-self: center;
+    padding: 2vh;
+    width: calc(100% - 3vh);
+}
+
+summary::-webkit-details-marker{
+    display: none;
+}
+
+details > p{
+    font-size: medium;
+    margin: 0;
+}
+
+input[name="quantity"]{
+    display: table-caption;
+    border: 1px solid black;
+    border-radius: 1vh;
+    text-align: center;
+    width: calc(100% - 3vh);
+}
+
+details[open] hr,summary ~ * {
+    animation: anim 0.5s linear;
+}
+
+@keyframes anim {
+    0%    {opacity: 0; }
+    100%  {opacity: 1; }
+}
+
+input, textarea, select{
+    width: calc(100% - 3vh);
+}
+
+*:focus {
+    outline: none;
+}
+
+/* card */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+img{
+    margin-top: 2vh;
+}
+.container {
+    padding: 2px 16px;
+}
+
+
+/* footer */
+.bottom-box {
+    width: 100%;
+    bottom: 0;
+    height: 3vh;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+
+.bottom-box ul {
+    text-align: center;
+    padding: 0 5;
+
+}
+
+.bottom-box ul li {
+    display: inline-block;
+    width: 120px;
+}
+
+.bottom-box ul li a {
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.bottom-box ul li a:hover {
+    color: rgb(43, 191, 68);
+}
+
+.isDisabled {
+    pointer-events: none;
+}
