@@ -3,7 +3,6 @@ include 'classes/Action.php';
 include 'classes/Admin.php';
 include 'classes/ConnectDB.php';
 require_once "configures/DB_config.php";
-require_once "executers/menu_vid.php";
 session_start();
 if(!isset($_SESSION['user_email'])){
     header("Location: Menu.php");
@@ -14,7 +13,7 @@ if(!isset($_SESSION['user_email'])){
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Menu</title>
+    <title>My previous orders</title>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -22,6 +21,7 @@ if(!isset($_SESSION['user_email'])){
     <link rel="stylesheet" href="styles/menu.css">
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
@@ -35,11 +35,13 @@ if(!isset($_SESSION['user_email'])){
 <div class="container">
     <div class="d-flex align-content-center flex-wrap">
 <?php
+//if logged in show order of a user
 if( isset($_SESSION['user_email']) && isset($_SESSION['user_pass'])  ){
+    //getting user id by creating an object of Class VHOD and using getID method
     $user = new VHOD($_SESSION['user_email'], $_SESSION['user_pass']);
-
     $user_id = $user->getID($conn);
 
+    // Showing differen orders made by user
     $sql = "SELECT DISTINCT * FROM orders 
             WHERE orders.order_id  IN ( 
             SELECT orders_users.order_id FROM orders_users INNER JOIN users ON orders_users.user_id = users.user_id WHERE users.user_id = ?)";
@@ -47,6 +49,7 @@ if( isset($_SESSION['user_email']) && isset($_SESSION['user_pass'])  ){
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
+    //getting number of rows
     $num_rows = mysqli_num_rows($result);
     if($num_rows > 0){
     while($row = $result->fetch_assoc()){
@@ -65,6 +68,7 @@ if( isset($_SESSION['user_email']) && isset($_SESSION['user_pass'])  ){
                 <summary>About<hr></summary>
                 <ul>
                     <?php
+                    //new Sql statement to get info about gained product in order
                     $sql_new = "SELECT product.product_name
                                 FROM product 
                                 WHERE product_id 
@@ -84,6 +88,7 @@ if( isset($_SESSION['user_email']) && isset($_SESSION['user_pass'])  ){
         </div>
     <?php
         }
+        //Showing these if num_rows == 0
     } else {
         ?>
         <p><h3>0 Result.</h3></p>

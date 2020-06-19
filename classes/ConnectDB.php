@@ -1,13 +1,15 @@
 <?php
+//Class for connecting to Database
 
 
-class ConnectDB
-{
+class ConnectDB {
+    //private attributes
 private $db_host = " ";
 private $db_name = " ";
 private $db_user = " ";
 private $db_pass = " ";
 
+    //Constructor
     public function __construct($db_host, $db_user, $db_pass, $db_name)
     {
         $this->db_host = $db_host;
@@ -16,6 +18,7 @@ private $db_pass = " ";
         $this->db_name = $db_name;
     }
 
+    //Setting Connection to DataBase
     public function setConn(){
         $conn = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
         if (mysqli_connect_error()) {
@@ -24,6 +27,7 @@ private $db_pass = " ";
             return $conn;
     }
 
+    //GETTERS & SETTERS
     /**
      * @return string
      */

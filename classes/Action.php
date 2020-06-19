@@ -3,19 +3,22 @@
 class Action extends VHOD
 {
     private $action = ' ';
-    public function __construct($user_email, $user_pass,$action)
+    //Constructor
+    public function __construct($user_email, $user_pass, $action)
     {
         parent::__construct($user_email, $user_pass);
         $this->action = $action;
     }
 
+    //LOGGING OUT OR DELETING ACCOUNT
     public function DoAction($conn) {
+        //destroying action on logout
         if($this->action == "logout") {
-            echo "<script> alert('Logged out Succesfully')</script>";
             session_destroy();
             return TRUE;
         }
         elseif($this->action == "delete") {
+            //deleting order performed by an account from DataBase
             $user_id = parent::getID($conn);
             $sql_delete_orders= "DELETE FROM orders 
             WHERE orders.order_id  IN ( 
@@ -24,13 +27,13 @@ class Action extends VHOD
             $stmt1->bind_param("i", $user_id);
             $stmt1->execute();
 
+            //Deleting an account itself
             $sql_delete_user = "DELETE FROM users WHERE user_id = ? ";
             $stmt2 = $conn->prepare($sql_delete_user);
             $stmt2->bind_param("i", $user_id);
-
             $result = $stmt2->execute();
+
             if ($result == TRUE) {
-                echo "<script> alert('Deleted Succesfully')</script>";
                 session_destroy();
                 return  TRUE;
             }
@@ -38,6 +41,8 @@ class Action extends VHOD
 
         }
     }
+
+    //GETTERS & SETTERS
 
     /**
      * @return string
@@ -47,6 +52,7 @@ class Action extends VHOD
         return $this->action;
     }
 
+
     /**
      * @param string $action
      */
@@ -54,10 +60,6 @@ class Action extends VHOD
     {
         $this->action = $action;
     }
-
-
-
-
 
 
 }

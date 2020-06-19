@@ -1,4 +1,5 @@
 <?php
+//showing this div if user is not logged in
 if(!isset($_SESSION['user_email'])) {
 
     print "<div class='bg-danger' style='text-align: center; color: azure; '>
