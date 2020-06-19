@@ -89,20 +89,7 @@ session_start();
 
 
 
-<!-- footer -->
-  <div class="footer" >
-
-
-        <div class="bottom-box">
-            <hr>
-            <ul>
-                <li><a href="company.html">About Us</a></li>
-                <li><a href="Developers.php">Developers</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">&copy;Cafe    2020</a></li>
-            </ul>
-        </div>
-
+  <?php require_once("PartsOfSite/footer.php");//footer?>
 
 
   </div>

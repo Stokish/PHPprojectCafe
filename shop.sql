@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Июн 19 2020 г., 06:23
+-- Время создания: Июн 19 2020 г., 08:09
 -- Версия сервера: 8.0.18
 -- Версия PHP: 7.3.17
 
@@ -66,7 +66,6 @@ INSERT INTO `orders` (`order_id`, `date`, `cost`) VALUES
 (25, '2020-06-07 05:15:51', 3.99),
 (28, '2020-06-07 06:19:12', 15.96),
 (30, '2020-06-07 10:42:44', 9.95),
-(33, '2020-06-07 15:22:03', 11.99),
 (36, '2020-06-08 08:52:48', 39.94),
 (37, '2020-06-09 13:02:02', 7.5),
 (39, '2020-06-13 06:59:53', 30),
@@ -129,7 +128,6 @@ INSERT INTO `orders_users` (`order_id`, `user_id`) VALUES
 (25, 1),
 (28, 1),
 (30, 23),
-(33, 1),
 (36, 1),
 (37, 30),
 (39, 23),
@@ -287,7 +285,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT для таблицы `product`
@@ -299,7 +297,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

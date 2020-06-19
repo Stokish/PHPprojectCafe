@@ -1,10 +1,12 @@
 
   <!-- footer -->
-    <div class="footer" >
+    <div class="footer">
 
 
-        <div class="bottom-box">
+        <div class="bottom-box mx-auto">
             <hr>
+
+
             <?php    if(isset($_SESSION['user_email']) && isset($_SESSION['user_pass'])){
                 //SHOWING A LOG OUT AND DELETE ACCOUNT BUTTON IF LOGGED IN?>
                 <script>
@@ -47,27 +49,22 @@
                     );
                 </script>
 
-                <div style="display:flex; flex-wrap: wrap; margin: auto auto; justify-content: center">
+                <div style="display:flex; flex-wrap: wrap; margin: auto auto auto 6vw; justify-content: center">
                     <form  style="margin-right: 2vw;" >
-                        <input type="hidden" name="action" value="logout">
                         <button  id="user_out" class="btn btn-danger my-1">Log out</button>
                     </form>
                     <form>
-                        <input type="hidden" name="action" value="delete">
                         <button id="user_del" class="btn btn-danger my-1">Delete my account</button>
                     </form>
                 </div>
             <?php } ?>
 
-            <!-- DEFAULT FOOTER LINKS-->
-            <ul>
-                <li><a href="company.html">About Us</a></li>
-                <li><a href="Developers.php">Developers</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">&copy;Cafe    2020</a></li>
+            <!-- DEFAULT FOOTER LINK-->
+            <ul class="text-uppercase " style="" >
+                <li ><a href="Developers.php" class="mx-auto">Developers</a></li>
             </ul>
-        </div>
 
+        </div>
 
 
     </div>
